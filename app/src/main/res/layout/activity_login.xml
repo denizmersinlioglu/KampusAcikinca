@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:orientation="vertical"
+    android:gravity="center"
+    android:layout_marginBottom="200dp"
+
+    tools:context="com.ggg.denizmersinlioglu.kampusacikinca.LoginActivity">
+
+    <ImageView
+        android:id="@+id/applicaton_Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
+    <EditText
+        android:id="@+id/user_Email_Input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:hint="@string/InputEmailText"
+        android:inputType="textPersonName"
+        android:padding="5dp"
+        android:layout_margin="10dp" />
+
+    <EditText
+        android:id="@+id/password_Input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:inputType = "textPassword"
+        android:hint="@string/PasswordText"
+        android:padding="5dp"
+        android:layout_margin="10dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/signIn_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SignInText"
+            android:layout_margin="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+        <Button
+            android:id="@+id/login_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/LoginText"
+            android:layout_margin="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</android.support.v7.widget.LinearLayoutCompat>

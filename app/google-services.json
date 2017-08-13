@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "595891093899",
+    "firebase_url": "https://kampusacikinca.firebaseio.com",
+    "project_id": "kampusacikinca",
+    "storage_bucket": "kampusacikinca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595891093899:android:6348270ce025fa78",
+        "android_client_info": {
+          "package_name": "com.ggg.denizmersinlioglu.kampusacikinca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595891093899-nf8ve2heqvo2frqrnmdm7gtovmvt0ttm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ggg.denizmersinlioglu.kampusacikinca",
+            "certificate_hash": "3b0378cd6ef0cac0f97d9bd7b23f4537f36a9567"
+          }
+        },
+        {
+          "client_id": "595891093899-5jje5ueec2l60aog78thuc40mningf66.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClxGgfMK6fmCCigb5syLFOsiBq84CeVJo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595891093899-5jje5ueec2l60aog78thuc40mningf66.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

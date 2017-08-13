@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+    <!--  ListRow Left sied Thumbnail image -->
+    <LinearLayout android:id="@+id/room_user_thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/image_bg"
+        android:layout_marginRight="5dip">
+
+        <ImageView
+            android:id="@+id/room_user_profile_picture"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:src="@drawable/photo"/>
+
+    </LinearLayout>
+
+    <!-- Name of the User-->
+    <TextView
+        android:id="@+id/room_list_userName_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/room_user_thumbnail"
+        android:layout_toRightOf="@+id/room_user_thumbnail"
+        android:text="Deniz Mersinlioglu"
+        android:layout_marginLeft="10dp"
+        android:textColor="#040404"
+        android:typeface="sans"
+        android:textSize="20dip"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/room_user_thumbnail"
+        android:layout_below="@id/room_list_userName_textView">
+
+        <!-- Profile Button -->
+        <Button
+            android:id="@+id/room_list_navigate_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#343434"
+            android:textSize="12dip"
+            android:layout_marginLeft="5dp"
+            android:text="Profile" />
+
+        <!-- Order Button -->
+        <Button
+            android:id="@+id/room_list_navigate_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#343434"
+            android:textSize="12dip"
+            android:layout_marginLeft="20dp"
+            android:text="Order" />
+
+
+    </LinearLayout>
+
+    <!-- Rating of User -->
+    <TextView
+        android:id="@+id/room_list_userRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/deal_name_textView"
+        android:gravity="right"
+        android:text="9"
+        android:layout_marginTop="20dip"
+        android:layout_marginRight= "50dip"
+        android:textSize="30dip"
+        android:textColor="#10bcc9"
+        android:textStyle="bold"/>
+
+    <!-- Rightend Arrow -->
+    <ImageView android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/arrow"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>
