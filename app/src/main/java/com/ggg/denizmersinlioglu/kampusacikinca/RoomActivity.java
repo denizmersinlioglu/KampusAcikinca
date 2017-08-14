@@ -91,33 +91,27 @@ public class RoomActivity extends Activity {
     private void LeaveTheRoom(){
         deleteUserFromDatabase();
         navigateToMainPage();
-    }
-
-    private void deleteUserFromDatabase(){
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference listDatabaseRef = database.getReference("Rooms/"+roomPath+"/roomParticipantList");
-        String userName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-
-        DatabaseReference userDatabaseRef = database.getReference("Rooms/"+roomPath+"/roomParticipantList/"+userName+"participantStatus");
-
-        Query queryUserRef = listDatabaseRef.orderByChild("userName").equalTo(userName);
-
-        ValueEventListener listener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                dataSnapshot.getRef().setValue(null);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-
-        queryUserRef.addValueEventListener(listener);
         queryUserRef.removeEventListener(listener);
-
-
     }
 
+    ValueEventListener listener = new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            dataSnapshot.getRef().removeValue();
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    };
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference listDatabaseRef = database.getReference("Rooms/"+roomPath+"/roomParticipantList");
+    Query queryUserRef ;
+    private void deleteUserFromDatabase(){
+        String userName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+        queryUserRef = listDatabaseRef.orderByChild("userName").equalTo(userName);
+        queryUserRef.addValueEventListener(listener);
+    }
 }

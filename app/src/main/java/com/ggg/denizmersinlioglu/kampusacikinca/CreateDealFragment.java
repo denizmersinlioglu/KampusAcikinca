@@ -220,7 +220,11 @@ public class CreateDealFragment extends Fragment {
         User user = new User(email,userName);
 
         Room room = new Room(dealName, new User(email,userName), maxParticipant,maxTotalAmount,isPrivate,time);
-        room.getRoomParticipantList().add(user);
+        //room.getRoomParticipantList().add(user);
+        FirebaseDatabase database2 = FirebaseDatabase.getInstance();
+        DatabaseReference listDatabaseRef = database2.getReference("Rooms/"+arrangeEmailToBePath(email)+"/roomParticipantList");
+        String key = arrangeEmailToBePath(user.getEmail());
+        listDatabaseRef.child(key).setValue(user);
 
         Deal newDeal = new Deal(time,isPrivate,dealName,campusName,restaurantName,description);
         newDeal.setUser(user);
