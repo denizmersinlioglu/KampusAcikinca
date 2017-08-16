@@ -1,5 +1,7 @@
 package com.ggg.denizmersinlioglu.kampusacikinca;
 
+import android.location.Location;
+
 /**
  * Created by DenizMersinlioglu on 01/08/2017.
  */
@@ -9,9 +11,9 @@ public class User {
     private String email;
     private String userName;
     private String userPass;
-    private String userLocation;
     private User[] friendList;
     private long userRating;
+    private Location location;
     //<------------------------------------------------>
 
 
@@ -38,13 +40,6 @@ public class User {
         this.friendList = friendList;
     }
 
-    public String getUserLocation() {
-        return userLocation;
-    }
-
-    public void setUserLocation(String userLocation) {
-        this.userLocation = userLocation;
-    }
 
     public String getUserName() {
         return userName;
@@ -78,4 +73,11 @@ public class User {
         this.userRating = userRating;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 }

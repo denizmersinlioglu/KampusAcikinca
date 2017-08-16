@@ -13,21 +13,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.colintmiller.simplenosql.NoSQL;
-import com.colintmiller.simplenosql.NoSQLEntity;
-import com.colintmiller.simplenosql.RetrievalCallback;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -230,6 +227,8 @@ public class CreateDealFragment extends Fragment {
         newDeal.setUser(user);
         databaseDealReference.child(arrangeEmailToBePath(email)).setValue(newDeal);
         databaseRoomReference.child(arrangeEmailToBePath(email)).setValue(room);
+
+
     }
 
     private String arrangeEmailToBePath(String email) {
