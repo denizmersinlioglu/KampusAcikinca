@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -41,6 +42,15 @@ public class RoomActivity extends Activity {
 
     }
 
+    private void doProfileOperation(View v){
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack if needed
+        transaction.replace(R.id.room_frameLayout, new RoomMainListFragment());
+        transaction.addToBackStack(null);
+        // Commit the transaction
+        transaction.commit();
+    }
     private void CreateRoomPathForFragments() {
         getIntents();
         //Create room object to the Firebase

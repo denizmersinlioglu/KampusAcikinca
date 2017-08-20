@@ -77,11 +77,29 @@ public class CreateDealFragment extends Fragment {
                 {
                     if(checkInputDataFromUI()) {
                         createNewDeal();
-                        navigateTheRoomYouCreated();
+                        ///navigateTheRoomYouCreated();
+                        navigateMainPage();
+                        sendNotificationToUser(campusName, "You have a new deal in campus" + campusName);
                     }
                 }
             }
         );
+    }
+
+    private void navigateMainPage(){
+        Intent myIntent = new Intent(this.getActivity(),MainActivity.class);
+        startActivity(myIntent);
+    }
+    public static void sendNotificationToUser(String user, final String _message) {
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference notifications = database.getReference("notifications");
+
+        Map notification = new HashMap<>();
+        notification.put("campusName", user);
+        notification.put("message", _message);
+
+        notifications.push().setValue(notification);
     }
 
     private void initializeUI() {

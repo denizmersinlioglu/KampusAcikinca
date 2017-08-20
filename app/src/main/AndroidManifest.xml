@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RoomActivity"
+        <activity
+            android:name=".RoomActivity"
             android:label="RoomActivity"
             android:parentActivityName=".MainActivity">
 
@@ -34,14 +34,16 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".CreateAccountActivity" />
-        <activity android:name=".CreateDealActivity"
+        <activity
+            android:name=".CreateDealActivity"
             android:label="CreateDealActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ggg.denizmersinlioglu.kampusacikinca.MainActivity" />
         </activity>
-        <activity android:name=".SettingsActivity"
+        <activity
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
             android:parentActivityName=".MainActivity">
             <meta-data
@@ -51,17 +53,16 @@
 
         <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
         <service android:name=".FirebaseIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
+        <activity android:name=".UserProfileActivity"></activity>
     </application>
-
 
 </manifest>

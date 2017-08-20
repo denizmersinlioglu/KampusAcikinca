@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class KampusAcikincaUserDatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DB_NAME = "starbuzz"; // the name of our database
+    private static final String DB_NAME = "myUser"; // the name of our database
     private static final int DB_VERSION = 2; // the version of the database
 
     KampusAcikincaUserDatabaseHelper(Context context) {
@@ -33,22 +33,26 @@ public class KampusAcikincaUserDatabaseHelper extends SQLiteOpenHelper {
 
     private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (oldVersion < 1) {
-            db.execSQL("CREATE TABLE FRIENDS (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
+            db.execSQL("CREATE TABLE MY_USER (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "NAME TEXT, "
-                    + "EMAIL TEXT, ");
+                    + "EMAIL TEXT, "
+                    + "CAMPUS TEXT,"
+                    + "DESCRIPTION TEXT,"
+                    + "IMAGE_RESOURCE_ID INTEGER);");
         }
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        insertUser(db,user.getDisplayName(),user.getEmail(),"-","-",R.drawable.burgerking);
 
-        if (oldVersion < 2) {
-            db.execSQL("ALTER TABLE FRIENDS ADD COLUMN FAVORITE NUMERIC;");
-        }
     }
 
     private static void insertUser(SQLiteDatabase db, String name,
-                                   String email) {
-        ContentValues friendValues = new ContentValues();
-        friendValues.put("NAME", name);
-        friendValues.put("DESCRIPTION", email);
-        db.insert("FRIENDS", null, friendValues);
+                                   String email, String campus, String description, int resourceId) {
+        ContentValues userValues = new ContentValues();
+        userValues.put("NAME", name);
+        userValues.put("EMAIL", email);
+        userValues.put("CAMPUS", campus);
+        userValues.put("DESCRIPTION", description);
+        userValues.put("IMAGE_RESOURCE_ID", resourceId);
+        db.insert("MY_USER", null, userValues);
     }
 }

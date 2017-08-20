@@ -65,17 +65,7 @@ public class MainActivity extends AppCompatActivity implements MainListFragment.
 
     }
 
-    public static void sendNotificationToUser(String user, final String _message) {
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference notifications = database.getReference("notifications");
-
-        Map notification = new HashMap<>();
-        notification.put("campusName", user);
-        notification.put("message", _message);
-
-        notifications.push().setValue(notification);
-    }
     @Override
     protected void onStart() {
         super.onStart();
@@ -91,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements MainListFragment.
                 FirebaseMessaging.getInstance().subscribeToTopic("pushNotifications");
                 // [END subscribe_topics]
 
-                sendNotificationToUser("campusName", "Hi there puf!");
                 // Log and toast
                 String msg = "Message sent";
                 Log.d(TAG, msg);
@@ -122,6 +111,10 @@ public class MainActivity extends AppCompatActivity implements MainListFragment.
                 return true;
             case R.id.menu_sign_out:
                 mAuth.signOut();
+                return true;
+            case R.id.Profile:
+                Intent profileIntent = new Intent(this, UserProfileActivity.class);
+                startActivity(profileIntent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
