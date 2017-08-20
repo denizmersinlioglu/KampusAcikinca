@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -41,6 +42,15 @@ public class RoomActivity extends Activity {
 
     }
 
+    private void doProfileOperation(View v){
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack if needed
+        transaction.replace(R.id.room_frameLayout, new RoomMainListFragment());
+        transaction.addToBackStack(null);
+        // Commit the transaction
+        transaction.commit();
+    }
     private void CreateRoomPathForFragments() {
         getIntents();
         //Create room object to the Firebase
@@ -91,33 +101,27 @@ public class RoomActivity extends Activity {
     private void LeaveTheRoom(){
         deleteUserFromDatabase();
         navigateToMainPage();
-    }
-
-    private void deleteUserFromDatabase(){
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference listDatabaseRef = database.getReference("Rooms/"+roomPath+"/roomParticipantList");
-        String userName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-
-        DatabaseReference userDatabaseRef = database.getReference("Rooms/"+roomPath+"/roomParticipantList/"+userName+"participantStatus");
-
-        Query queryUserRef = listDatabaseRef.orderByChild("userName").equalTo(userName);
-
-        ValueEventListener listener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                dataSnapshot.getRef().setValue(null);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-
-        queryUserRef.addValueEventListener(listener);
         queryUserRef.removeEventListener(listener);
-
-
     }
 
+    ValueEventListener listener = new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            dataSnapshot.getRef().removeValue();
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    };
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference listDatabaseRef = database.getReference("Rooms/"+roomPath+"/roomParticipantList");
+    Query queryUserRef ;
+    private void deleteUserFromDatabase(){
+        String userName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+        queryUserRef = listDatabaseRef.orderByChild("userName").equalTo(userName);
+        queryUserRef.addValueEventListener(listener);
+    }
 }

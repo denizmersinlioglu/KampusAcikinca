@@ -13,21 +13,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.colintmiller.simplenosql.NoSQL;
-import com.colintmiller.simplenosql.NoSQLEntity;
-import com.colintmiller.simplenosql.RetrievalCallback;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -80,11 +77,29 @@ public class CreateDealFragment extends Fragment {
                 {
                     if(checkInputDataFromUI()) {
                         createNewDeal();
-                        navigateTheRoomYouCreated();
+                        ///navigateTheRoomYouCreated();
+                        navigateMainPage();
+                        sendNotificationToUser(campusName, "You have a new deal in campus" + campusName);
                     }
                 }
             }
         );
+    }
+
+    private void navigateMainPage(){
+        Intent myIntent = new Intent(this.getActivity(),MainActivity.class);
+        startActivity(myIntent);
+    }
+    public static void sendNotificationToUser(String user, final String _message) {
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference notifications = database.getReference("notifications");
+
+        Map notification = new HashMap<>();
+        notification.put("campusName", user);
+        notification.put("message", _message);
+
+        notifications.push().setValue(notification);
     }
 
     private void initializeUI() {
@@ -220,12 +235,18 @@ public class CreateDealFragment extends Fragment {
         User user = new User(email,userName);
 
         Room room = new Room(dealName, new User(email,userName), maxParticipant,maxTotalAmount,isPrivate,time);
-        room.getRoomParticipantList().add(user);
+        //room.getRoomParticipantList().add(user);
+        FirebaseDatabase database2 = FirebaseDatabase.getInstance();
+        DatabaseReference listDatabaseRef = database2.getReference("Rooms/"+arrangeEmailToBePath(email)+"/roomParticipantList");
+        String key = arrangeEmailToBePath(user.getEmail());
+        listDatabaseRef.child(key).setValue(user);
 
         Deal newDeal = new Deal(time,isPrivate,dealName,campusName,restaurantName,description);
         newDeal.setUser(user);
         databaseDealReference.child(arrangeEmailToBePath(email)).setValue(newDeal);
         databaseRoomReference.child(arrangeEmailToBePath(email)).setValue(room);
+
+
     }
 
     private String arrangeEmailToBePath(String email) {

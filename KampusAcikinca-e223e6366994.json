@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "kampusacikinca",
+  "private_key_id": "e223e636699475273e7a1c9e15c2104865d168ba",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAgUieW24aOz/q\ne7dRg1fBlHvpPaPv/oFE+Md+Vr16eDhcSTQ3/HiaTaAYAjp69BDgz4r+LiQMSIyI\n0gujV96ngK3/LsEDhLHU4TNN2eNJGnBqSQJyG1fviGA48hBz+XgvnqZ/Le7e6nei\nfy2Y0ItXDAsf6diKQWcA/x/P0wE9ZTwECyVNoLazR1sI6HnaYygqKSfDjAk5mlcX\nuXexCmpfyLDOpnvou1BzYEKdt5wWbmcrgTiuR+bHuvqTf1eJyGdYqMWE3OMkhQy+\npUykw122ybM+HyCruwdDDT1bEvGIYVqSq3xGfCQRyJuMepme7NpW/N4D2T5T+ziu\nlYZ7SoLlAgMBAAECggEAMAojV+drrM6j5u18RDKBfBzEpmJcTqgl1NM7n47gZpdp\nQzh+eElARIuCG/O0adoN+zg30LIti0YwkfVO87KaLRVa9o9RmgHrifswHSm2g1f+\nfTueiWDC+1L+Zj+cNQDoygNuu9a34XfEJrBTreq/Fxg5j3uBLxFetdw08V1QFiSG\nM3j7zh6IGbuc+SudkyNx3R5VL9XrBA0mscnvGDCc2m4f4UTLIGycLsQ25gz3pZoH\nnN8YaI5+bw2oA6DHJyulijybag/LuTRv1wmqTp2UbwRcXj/Q1EsvNz7F/1/ezDhf\nLKhDPHMy6oMLgB0GbuBJterJCmhJiBkQwHwX8pcvCQKBgQDkYg6bNWx++udfSZsM\nDhTZ4PpRcDiEtw2FfVbwHF2CmlWPSCWsA5iv4OFxQgRTnCyyLqta1aI67hj/BGj+\nLLRBIblMPlle4LEPWkffaE3Jxog+41rYpCnVCWLN2KWadJbARWHJIz+8HxiVUqa3\nJt6VR6ANtcYoPFCJBtDZ45y53QKBgQDXyJFvCGyoouxTEBL9G8mNmt5iVaQn9V+g\n92WGaqXeYfzDL9B/u6C1xK0p4RjJE8EnYIKWqoH5kvdTSwwVjEqHOb0qrervY8j0\nK0BNi9pQyCz1clNQFc+muzGtWRj61UVZ0rPtHOHDDnviWMvvpnmZxEGA/g40Gte/\n2fg8ba4QqQKBgQCZx9Ev/4Qj6IydI/Hr5xtxLkU/SwIzkxLevOwqV987TvKnvRvo\nvK82VoVW/u3s4q9R94zYaBuJ9MMODIkqBS4G4U9lIGKLOV7gCJl2vEQMxsr9FZgZ\nYkjssxo9o1C3NSRBKTbT+hEzefjSq0mo79pWyFjkgm6Ar0RHUDiXTuU8XQKBgAuW\nInEC08rOTMA9Cbf7iPwIh85h6NmYbFUZU6M/EL77JfZZF+nz6jI4aE/qXUlWvTVf\nEkQCzc3X3V3klraFfO7747Np+UZ3Zi/uLpq7WrKhvQBE7kJLmYXLYWR8d0Hot7uV\n+8FMnra5jV9fAzxQBRGDnzzM53hWxKTxkEm2XfVZAoGAev2SI+L24gZvX3ilasIA\nSwpgVIJBF1ZC+/mqcft2MOaVGREFlVvxo+87U49TQPMHFbI5m8shacq0+O6UpqTp\ndshNCp537uErwzNlqps1pXAggDI1yiCdaUakACrzfZQJK+o/isSZX5GiU75bXoWY\n0XTjNdLKC4Di7JSE0IXusJI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-55pq0@kampusacikinca.iam.gserviceaccount.com",
+  "client_id": "118425552957157032657",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-55pq0%40kampusacikinca.iam.gserviceaccount.com"
+}
